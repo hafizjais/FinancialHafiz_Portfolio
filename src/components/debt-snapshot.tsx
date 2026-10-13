@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useLayoutEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { Calculator, Lock, RotateCcw } from "lucide-react";
+import { Lock, RotateCcw } from "lucide-react";
 import { concerns } from "@/content/concerns";
 import { track } from "@/lib/analytics";
 import { formatPercent, formatRM, groupThousands, sanitizeAmount } from "@/lib/format";
@@ -178,16 +178,16 @@ export function DebtSnapshot() {
   };
 
   return (
-    <section id="snapshot" aria-labelledby="snapshot-title" className="bg-cream py-16 sm:py-20">
+    <section id="snapshot" aria-labelledby="snapshot-title" className="bg-mist py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeading id="snapshot-title" eyebrow="Pilihan · 2 minit" title="Debt Snapshot Ringkas">
+        <SectionHeading id="snapshot-title" title="Debt Snapshot Ringkas">
           <p>
             Masukkan anggaran sahaja. Kami sediakan ringkasan yang boleh anda hantar terus ke WhatsApp —
             supaya perbincangan lebih cepat dan fokus.
           </p>
         </SectionHeading>
 
-        <p className="mx-auto mt-5 flex max-w-2xl items-start gap-2 text-sm text-navy-700 sm:justify-center sm:text-center">
+        <p className="mt-5 flex max-w-2xl items-start gap-2 text-sm text-navy-700">
           <Lock className="mt-0.5 size-4 shrink-0 text-navy-500" aria-hidden="true" />
           <span>
             Dikira dalam pelayar anda sahaja — tidak disimpan atau dihantar ke mana-mana sehingga anda
@@ -207,7 +207,7 @@ export function DebtSnapshot() {
             Medan bertanda bintang wajib diisi. Semua angka adalah anggaran dalam Ringgit Malaysia.
           </p>
 
-          <div className="rounded-3xl border border-navy-100 bg-white p-5 shadow-sm sm:p-7">
+          <div className="rounded-md border border-navy-100 bg-white p-5 sm:p-7">
             <fieldset aria-describedby={showError("employment") ? `${fieldId("employment")}-error` : undefined}>
               <legend className="text-sm font-bold text-navy-950">
                 Kategori pekerjaan <span className="text-gold-700" aria-hidden="true">*</span>
@@ -218,7 +218,7 @@ export function DebtSnapshot() {
                   return (
                     <label
                       key={opt.value}
-                      className={`flex min-h-12 cursor-pointer items-center justify-center rounded-xl border-2 px-3 text-center text-sm font-semibold transition-colors has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-navy-700 ${
+                      className={`flex min-h-12 cursor-pointer items-center justify-center rounded border-2 px-3 text-center text-sm font-semibold transition-colors has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-navy-700 ${
                         checked
                           ? "border-navy-700 bg-navy-800 text-white"
                           : "border-navy-100 bg-white text-navy-800 hover:border-navy-300"
@@ -342,10 +342,9 @@ export function DebtSnapshot() {
           {/* Summary */}
           <aside
             aria-labelledby={`${baseId}-summary-title`}
-            className="rounded-3xl bg-navy-900 p-5 text-white shadow-lg sm:p-7 lg:sticky lg:top-24"
+            className="rounded-md bg-navy-900 p-5 text-white sm:p-7 lg:sticky lg:top-24"
           >
-            <h3 id={`${baseId}-summary-title`} className="flex items-center gap-2 text-lg font-bold">
-              <Calculator className="size-5 text-gold-300" aria-hidden="true" />
+            <h3 id={`${baseId}-summary-title`} className="font-serif text-2xl font-bold">
               Ringkasan anda
             </h3>
 
@@ -366,13 +365,13 @@ export function DebtSnapshot() {
             </dl>
 
             <div className="mt-5 grid grid-cols-2 gap-3">
-              <div className="rounded-2xl bg-white/10 p-3.5 ring-1 ring-white/10">
+              <div className="rounded bg-white/10 p-3.5 ring-1 ring-white/10">
                 <p className="text-xs leading-snug text-navy-200">Anggaran nisbah komitmen*</p>
                 <p className="mt-1 text-2xl font-extrabold tabular-nums" aria-live="polite">
                   {indicators.ratio !== null ? formatPercent(indicators.ratio) : "—"}
                 </p>
               </div>
-              <div className="rounded-2xl bg-white/10 p-3.5 ring-1 ring-white/10">
+              <div className="rounded bg-white/10 p-3.5 ring-1 ring-white/10">
                 <p className="text-xs leading-snug text-navy-200">Baki gaji bersih selepas komitmen**</p>
                 <p className="mt-1 text-2xl font-extrabold tabular-nums" aria-live="polite">
                   {indicators.remaining !== null ? formatSigned(indicators.remaining) : "—"}
@@ -392,7 +391,7 @@ export function DebtSnapshot() {
             </div>
 
             {submitted && errorCount > 0 && (
-              <p role="alert" className="mt-5 rounded-xl bg-gold-100 px-3.5 py-2.5 text-sm font-semibold text-navy-950">
+              <p role="alert" className="mt-5 rounded bg-gold-100 px-3.5 py-2.5 text-sm font-semibold text-navy-950">
                 Sila lengkapkan {errorCount} medan yang ditanda sebelum menghantar ringkasan.
               </p>
             )}
@@ -413,7 +412,7 @@ export function DebtSnapshot() {
           </aside>
         </form>
 
-        <p className="mt-8 text-center text-sm text-navy-700">
+        <p className="mt-8 text-sm text-navy-700">
           Tak selesa kongsi angka?{" "}
           <WhatsAppLink
             location="snapshot"
@@ -429,7 +428,7 @@ export function DebtSnapshot() {
 }
 
 function inputClass(invalid: boolean) {
-  return `block min-h-12 w-full rounded-xl border-2 bg-white px-3.5 text-base text-navy-950 transition-colors focus:border-navy-700 focus:outline-none focus-visible:ring-3 focus-visible:ring-navy-200 ${
+  return `block min-h-12 w-full rounded border-2 bg-white px-3.5 text-base text-navy-950 transition-colors focus:border-navy-700 focus:outline-none focus-visible:ring-3 focus-visible:ring-navy-200 ${
     invalid ? "border-red-500" : "border-navy-100 hover:border-navy-300"
   }`;
 }

@@ -24,11 +24,15 @@
   --color-gold-600: #c48a06;
   --color-gold-700: #9a6609;
 
-  --color-cream: #f8f6f1;
+  /* Flat tint for the occasional alternate section, and hairline rules */
+  --color-mist: #eef1f6;
+  --color-rule: #d5dbe6;
 }
 
 @theme inline {
-  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: var(--font-public), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: var(--font-literata), Georgia, "Times New Roman", serif;
+  --font-hand: var(--font-caveat), cursive;
 }
 
 :root {
@@ -57,19 +61,4 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@utility animate-fade-up {
-  animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }

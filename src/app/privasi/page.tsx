@@ -49,7 +49,7 @@ const sections: { title: string; body: string[] }[] = [
 export default function PrivacyPage() {
   const policyIsExternal = /^https?:\/\//.test(siteConfig.privacyPolicyUrl);
   return (
-    <div className="min-h-dvh bg-cream">
+    <div className="min-h-dvh bg-mist">
       <header className="border-b border-navy-100 bg-white">
         <div className="mx-auto flex h-16 max-w-3xl items-center px-4 sm:px-6">
           <Link href="/" aria-label="Kembali ke laman utama Financial Hafiz">
@@ -65,10 +65,10 @@ export default function PrivacyPage() {
           <ArrowLeft className="size-4" aria-hidden="true" />
           Kembali ke laman utama
         </Link>
-        <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-navy-950 sm:text-4xl">Dasar Privasi</h1>
+        <h1 className="mt-4 font-serif text-3xl font-bold tracking-tight text-navy-950 sm:text-4xl">Dasar Privasi</h1>
         <p className="mt-2 text-sm text-navy-600">Dikemas kini: 13 Oktober 2026</p>
         {policyIsExternal && (
-          <p className="mt-4 rounded-xl bg-white p-4 text-sm text-navy-800 ring-1 ring-navy-100">
+          <p className="mt-4 rounded bg-white p-4 text-sm text-navy-800 ring-1 ring-navy-100">
             Versi terkini dasar privasi boleh dibaca di{" "}
             <a href={siteConfig.privacyPolicyUrl} className="font-semibold underline">
               {siteConfig.privacyPolicyUrl}
@@ -77,10 +77,10 @@ export default function PrivacyPage() {
           </p>
         )}
 
-        <div className="mt-8 space-y-8 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-navy-100 sm:p-8">
+        <div className="mt-8 space-y-8 rounded-md bg-white p-6 ring-1 ring-navy-100 sm:p-8">
           {sections.map((section) => (
             <section key={section.title}>
-              <h2 className="text-lg font-bold text-navy-950">{section.title}</h2>
+              <h2 className="font-serif text-xl font-bold text-navy-950">{section.title}</h2>
               <div className="mt-2 space-y-3 leading-relaxed text-navy-700">
                 {section.body.map((p) => (
                   <p key={p}>{p}</p>
@@ -89,7 +89,7 @@ export default function PrivacyPage() {
             </section>
           ))}
           <section>
-            <h2 className="text-lg font-bold text-navy-950">5. Hubungi</h2>
+            <h2 className="font-serif text-xl font-bold text-navy-950">5. Hubungi</h2>
             <p className="mt-2 leading-relaxed text-navy-700">
               WhatsApp: {siteConfig.whatsapp.display}
               <br />

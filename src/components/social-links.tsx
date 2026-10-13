@@ -21,17 +21,16 @@ type Props = {
   tone?: "light" | "dark";
   /** Show the full email address instead of the "Email" label. */
   showEmailAddress?: boolean;
-  align?: "start" | "center";
 };
 
-export function SocialLinks({ location, tone = "light", showEmailAddress = false, align = "start" }: Props) {
+export function SocialLinks({ location, tone = "light", showEmailAddress = false }: Props) {
   const linkTone =
     tone === "dark"
-      ? "border-white/20 text-white hover:border-white/50 hover:bg-white/10 focus-visible:outline-gold-300"
-      : "border-navy-100 bg-white text-navy-800 hover:border-navy-300 hover:bg-navy-50 focus-visible:outline-navy-700";
+      ? "text-white decoration-gold-400 focus-visible:outline-gold-300"
+      : "text-navy-900 decoration-gold-400 focus-visible:outline-navy-700";
 
   return (
-    <ul className={`flex flex-wrap gap-2.5 ${align === "center" ? "justify-center" : ""}`}>
+    <ul className="flex flex-wrap gap-x-6">
       {links.map(({ network, label, href, Icon }) => {
         const isEmail = network === "email";
         return (
@@ -40,7 +39,7 @@ export function SocialLinks({ location, tone = "light", showEmailAddress = false
               href={href}
               {...(isEmail ? {} : { target: "_blank", rel: "noopener noreferrer" })}
               onClick={() => track("social_link_click", { network, location })}
-              className={`inline-flex min-h-11 items-center gap-2 rounded-full border px-4 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ${linkTone}`}
+              className={`inline-flex min-h-11 items-center gap-2 text-sm font-semibold underline decoration-2 underline-offset-4 hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-2 ${linkTone}`}
             >
               <Icon className="size-4 shrink-0" />
               <span className="break-all">{isEmail && showEmailAddress ? siteConfig.email : label}</span>

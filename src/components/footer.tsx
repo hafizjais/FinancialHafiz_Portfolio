@@ -37,7 +37,7 @@ export function Footer() {
 
           <div className="space-y-6 text-xs leading-relaxed">
             <div id="notis-privasi">
-              <h2 className="text-sm font-bold text-white">Notis privasi ringkas</h2>
+              <h2 className="font-serif text-base font-bold text-white">Notis privasi ringkas</h2>
               <p className="mt-2">
                 Laman ini tidak menyimpan maklumat kewangan yang anda masukkan dalam Debt Snapshot —
                 pengiraan berlaku dalam pelayar anda sahaja dan maklumat tersebut tidak dihantar ke
@@ -57,7 +57,7 @@ export function Footer() {
               </p>
             </div>
             <div>
-              <h2 className="text-sm font-bold text-white">Penafian</h2>
+              <h2 className="font-serif text-base font-bold text-white">Penafian</h2>
               <p className="mt-2">
                 {siteConfig.brand} menyediakan perbincangan awal dan semakan profil kewangan secara
                 umum. {siteConfig.person} bukan bank, pemberi pinjaman atau wakil AKPK. Maklumat di
